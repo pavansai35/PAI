@@ -1,0 +1,10 @@
+import pandas as pd
+
+# Load dataset (adjust path if needed)
+df = pd.read_csv("titanic.csv")
+
+# Basic exploration
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df.isnull().sum())
