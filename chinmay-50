@@ -1,0 +1,14 @@
+# Fill Age with median
+df['Age'].fillna(df['Age'].median(), inplace=True)
+
+# Fill Embarked with mode
+df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
+
+# Drop Cabin (too many missing values)
+df.drop(columns=['Cabin'], inplace=True)
+# Convert Sex to numeric
+df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+
+# One-hot encoding for Embarked
+df = pd.get_dummies(df, columns=['Embarked'], drop_first=True)
+df.drop(columns=['Name', 'Ticket', 'PassengerId'], inplace=True)
